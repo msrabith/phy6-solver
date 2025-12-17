@@ -3,9 +3,9 @@ import pytesseract
 
 pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
 
-def extract_text_from_image(image_path):
+def extract_text_from_image(image_file):
     try: 
-        img = Image.open(image_path.stream)
+        img = Image.open(image_file.stream)
         text = pytesseract.image_to_string(img)
         return text.strip()
     except Exception as e:
