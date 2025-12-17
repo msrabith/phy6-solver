@@ -1,5 +1,6 @@
 from PIL import Image
 import pytesseract
+import os
 
 if os.name == "nt":
         pytesseract.pytesseract.tesseract_cmd = (
