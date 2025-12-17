@@ -17,10 +17,13 @@ def home():
         image = request.files.get("problem_image")
 
         if image and image.filename != "":
-            problem = extract_text_from_image(image)
-            problem = clean_ocr_text(problem)
+            ocr_text = extract_text_from_image(image)
+            ocr_text = clean_ocr_text(ocr_text)
 
-        if problem:
+            if ocr_text:
+                problem = problem + "\n" + ocr_text
+
+        if problem.strip():
             print("OCR TEXT:",problem)
             solution = solve_physics(problem)
             solution = clean_solution(solution)
