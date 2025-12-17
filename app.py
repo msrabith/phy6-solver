@@ -17,10 +17,7 @@ def home():
         image = request.files.get("problem_image")
 
         if image and image.filename != "":
-            image_path = "uploaded.png"
-            image.save(image_path)
-
-            problem = extract_text_from_image(image_path)
+            problem = extract_text_from_image(image)
             problem = clean_ocr_text(problem)
 
         if problem:
